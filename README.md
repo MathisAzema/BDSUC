@@ -21,7 +21,7 @@ This repository contains the code accompanying the paper:
 
   1. Open a Julia REPL
   2. Run `include("test.jl")`
-  3. Call `test(time_limit=1, size=10, S=25)` to reproduce the second line of Table 1.
+  3. Call `test(time_limit=30, size=10, S=25)` to reproduce the second line of Table 1.
 
      * In the paper, the `time_limit` was set to 3600s, but for testing you may reduce it to 30s.
      * The `size` parameter defines the number of units.
