@@ -33,14 +33,14 @@ function test(;time_limit=1,size=10, S=1)
             else
                 Extended_BD_O_count[(N-1)*Num_batch + batch] = 0
             end
-            res_bin_extensive=BDSUC.bin_extensive_neutral(instance, silent=true, force=1.0, S=S, batch=batch, gap=0.1, timelimit=time_limit);
+            res_bin_extensive=BDSUC.bin_extensive_neutral(instance, silent=true, force=1.0, S=S, batch=batch, gap=0.1/100, timelimit=time_limit);
             if res_bin_extensive !== nothing && res_bin_extensive[2] <= time_limit-1
                 bin_extensive_time[(N-1)*Num_batch + batch] = res_bin_extensive[2]
                 bin_extensive_count[(N-1)*Num_batch + batch] = 1
             else
                 bin_extensive_count[(N-1)*Num_batch + batch] = 0
             end
-            res_extended_extensive=BDSUC.extended_extensive_neutral(instance, silent=true, force=1.0, S=S, batch=batch, gap=0.1, timelimit=time_limit);
+            res_extended_extensive=BDSUC.extended_extensive_neutral(instance, silent=true, force=1.0, S=S, batch=batch, gap=0.1/100, timelimit=time_limit);
             if res_extended_extensive !== nothing && res_extended_extensive[2] <= time_limit-1
                 extended_extensive_time[(N-1)*Num_batch + batch] = res_extended_extensive[2]
                 extended_extensive_count[(N-1)*Num_batch + batch] = 1
