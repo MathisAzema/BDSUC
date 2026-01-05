@@ -27,4 +27,4 @@ This repository contains the code accompanying the paper:
      * The `size` parameter defines the number of units. (You can choose 10, 50 or 100).
      * `S` is the number of scenarios.
 
-> Note: The 3-bin Benders’ Decomposition approach has been removed by default. You can re-enable it by uncommenting the corresponding lines in `test.jl`.
+> Note: The 3-bin Benders’ Decomposition and Extended BD-O approaches have been removed by default. You can re-enable it by uncommenting the corresponding lines in `test.jl`.

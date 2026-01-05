@@ -26,13 +26,13 @@ function test(;time_limit=1,size=10, S=1)
             else
                 Extended_BD_H_count[(N-1)*Num_batch + batch] = 0
             end
-            res_extended_BD_O=BDSUC.benders_callback(instance, BDSUC.extended_BD_FH_OE, silent=true, force=1.0, S=S, batch=batch, gap=0.1, timelimit=time_limit);
-            if res_extended_BD_O !== nothing && res_extended_BD_O[2] <= time_limit-1
-                Extended_BD_O_time[(N-1)*Num_batch + batch] = res_extended_BD_O[2]
-                Extended_BD_O_count[(N-1)*Num_batch + batch] = 1
-            else
-                Extended_BD_O_count[(N-1)*Num_batch + batch] = 0
-            end
+            # res_extended_BD_O=BDSUC.benders_callback(instance, BDSUC.extended_BD_FH_OE, silent=true, force=1.0, S=S, batch=batch, gap=0.1, timelimit=time_limit);
+            # if res_extended_BD_O !== nothing && res_extended_BD_O[2] <= time_limit-1
+            #     Extended_BD_O_time[(N-1)*Num_batch + batch] = res_extended_BD_O[2]
+            #     Extended_BD_O_count[(N-1)*Num_batch + batch] = 1
+            # else
+            #     Extended_BD_O_count[(N-1)*Num_batch + batch] = 0
+            # end
             res_bin_extensive=BDSUC.bin_extensive_neutral(instance, silent=true, force=1.0, S=S, batch=batch, gap=0.1/100, timelimit=time_limit);
             if res_bin_extensive !== nothing && res_bin_extensive[2] <= time_limit-1
                 bin_extensive_time[(N-1)*Num_batch + batch] = res_bin_extensive[2]
@@ -59,7 +59,7 @@ function test(;time_limit=1,size=10, S=1)
     end
 
     println("Extended_BD_H: ", sum(Extended_BD_H_time)/sum(Extended_BD_H_count), " (", sum(Extended_BD_H_count), "/$Num_tests)")
-    println("Extended_BD_O: ", sum(Extended_BD_O_time)/sum(Extended_BD_O_count), " (", sum(Extended_BD_O_count), "/$Num_tests)")
+    # println("Extended_BD_O: ", sum(Extended_BD_O_time)/sum(Extended_BD_O_count), " (", sum(Extended_BD_O_count), "/$Num_tests)")
     println("3bin-extensive: ", sum(bin_extensive_time)/sum(bin_extensive_count), " (", sum(bin_extensive_count), "/$Num_tests)")
     println("Extended-extensive: ", sum(extended_extensive_time)/sum(extended_extensive_count), " (", sum(extended_extensive_count), "/$Num_tests)")
     # println("3bin_BD: ", sum(BD3bin_time)/sum(BD3bin_count), " (", sum(BD3bin_count), "/$Num_tests)")
